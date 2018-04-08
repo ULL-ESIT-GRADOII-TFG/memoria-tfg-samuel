@@ -1,0 +1,368 @@
+\documentclass[spanish,a4paper,14pt,oneside]{extreport}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvips]{graphicx}
+\usepackage[dvips]{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{alltt}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\SONY}{{\sc Sony}}
+\newcommand{\MICROSOFT}{{\sc Microsoft}}
+\newcommand{\GCC}{\textsf{\textsc{G}CC}}
+\newcommand{\INTEL}{\textsf{\textsc{I}ntel}}
+
+%%% Traducimos el pseudocodigo
+\renewcommand{\algorithmicwhile}{\textbf{mientras}}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicdo}{\textbf{hacer}}
+\renewcommand{\algorithmicif}{\textbf{si}}
+\renewcommand{\algorithmicthen}{\textbf{entonces}}
+\renewcommand{\algorithmicrepeat}{\textbf{repetir}}
+\renewcommand{\algorithmicuntil}{\textbf{hasta que}}
+\renewcommand{\algorithmicelse}{\textbf{en otro caso}}
+\renewcommand{\algorithmicfor}{\textbf{para}}
+
+%\newcommand{\RETURN}{\textbf{retornar} }
+\newcommand{\RET}{\STATE \textbf{retornar} }
+\newcommand{\TO}{\textbf{hasta} }
+\newcommand{\AND}{\textbf{y} }
+\newcommand{\OR}{\textbf{o} }
+
+%%%%%%%%%%%%%%%%% Creamos un entorno para listar cÃ³digo fuente %%%%%%%%%%%%%%%
+\newenvironment{sourcecode}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
+{\end{list}}
+
+\newenvironment{littlesourcecode}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item\tiny\bfseries}
+{\end{list}}
+
+\newenvironment{summary}
+{\par\noindent\begin{center}\textbf{Abstract}\end{center}\begin{itshape}\par\noindent}
+{\end{itshape}}
+
+\newenvironment{keywords}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item[\hskip\labelsep \bfseries Keywords:]}
+{\end{list}}
+
+\newenvironment{palabrasClave}
+{\begin{list}{}{\setlength{\leftmargin}{1em}}\item[\hskip\labelsep \bfseries Palabras clave:]}
+{\end{list}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{showframe}
+%\marginparwidth 0mm
+%%\topmargin -4 mm
+%\topmargin -21 mm
+%\headheight 10 mm
+%\headsep 10 mm
+
+%\textheight 229 mm
+%\textheight 246 mm
+
+%\oddsidemargin -5.4 mm
+%\evensidemargin -5.4 mm
+%\oddsidemargin 5 mm
+%\evensidemargin 5 mm
+
+%\oddsidemargin -3 mm
+%\evensidemargin -3 mm
+
+%\textwidth 17 cm
+%\textwidth 15 cm
+%\columnsep 10 mm
+
+\input{amssym.def}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{empty}
+\thispagestyle{empty}
+
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{2.5mm}
+
+\vspace*{\stretch{0.5}}
+
+\begin{center}
+\includegraphics[scale=0.8]{images/logo_vertical}\\[10mm]
+{\Huge Trabajo de Fin de Grado}
+\end{center}
+
+\HRule
+\begin{flushright}
+        {\Huge Codelab} \\[2.5mm]
+        {\Large Samuel Ramos Barroso} \\[5mm]
+
+
+\end{flushright}
+\HRule
+\vspace*{\stretch{2}}
+\begin{center}
+  \Large La Laguna, \today
+\end{center}
+
+\setlength{\parindent}{5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Signature page (add the official stamp)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%\cleardoublepage
+\thispagestyle{empty}
+
+D. {\bf Casiano Rodríguez León}, con N.I.F. 42.020.072-S profesor Titular de Universidad adscrito al Departamento de Nombre del Departamento de la Universidad de La Laguna, como tutor
+
+\bigskip
+\bigskip
+{\bf C E R T I F I C A}
+
+\bigskip
+\bigskip
+\bigskip
+Que la presente memoria titulada:
+
+\bigskip
+``{\it Codelab.}''
+
+\bigskip
+\bigskip
+\bigskip
+
+\noindent ha sido realizada bajo su dirección por D. {\bf Samuel Ramos Barroso},
+con N.I.F. 51.165-611-H.
+
+\bigskip
+\bigskip
+
+Y para que así conste, en cumplimiento de la legislación vigente y a los efectos oportunos firman la presente en La Laguna a \today
+
+%\cleardoublepage
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+
+{ \flushright
+
+\begin{LARGE}
+Agradecimientos
+\end{LARGE}
+
+\hspace{3mm}
+
+\begin{large}
+
+
+\hspace{3mm}
+XXX
+
+\hspace{3mm}
+XXX
+
+
+\hspace{3mm}
+XXX
+
+
+\hspace{3mm}
+XXX
+
+
+\end{large}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\begin{huge}
+Licencia
+\end{huge}
+
+\begin{center}
+\includegraphics[scale=1.5]{images/by-nc_88x31}\\[10mm]
+{\Large \copyright~Esta obra está bajo una licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional.
+}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage  %\cleardoublepage
+\begin{abstract}
+{\em
+
+Este proyecto trata sobre la creación plataforma web destinada al apoyo del profesorado para la realización de prácticas 
+intentando resolver las limitaciones que tienen otras plataformas para la gestión de prácticas. 
+El profesor podrá crear tareas que serán asignadas a sus alumnos de forma individual o grupal. 
+Cada alumno realizará su realizará en un repositorio git, una vez finalizada, podrá ser revisada por el profesor.
+
+}
+
+\begin{palabrasClave}
+Git, Github, Tareas, clases, prácticas.
+\end{palabrasClave}
+
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage  %\cleardoublepage
+\begin{summary}
+{\em
+
+This project is about the creation of a web platform designed to support teachers for the realization
+of practices trying to solve the limitations that other platforms have for the
+practice management. The teacher can create tasks that will be assigned to his students individually or
+group Each student will perform their work in a git repository, once completed, they can
+be reviewed by the teacher.
+}
+
+\begin{keywords}
+Git, Github, Tareas, clases, prácticas.
+\end{keywords}
+
+\end{summary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagestyle{myheadings} %my head defined by markboth or markright
+% No funciona bien \markboth sin "twoside" en \documentclass, pero al
+% ponerlo se dan un montÃ³n de errores de underfull \vbox, con lo que no se
+% ha puesto.
+\markboth{Samuel Ramos Barroso}{Codelab}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Numeracion en romanos
+\renewcommand{\thepage}{\roman{page}}
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+
+\listoffigures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Numeracion a partir del capitulo I
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+
+
+\chapter{Introducción}
+\label{chapter:intro}
+
+\input{cap1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Plan de trabajo}
+\label{chapter:dos}
+
+\input{cap2.tex}
+
+\newpage{\pagestyle{empty}}
+\thispagestyle{empty}
+\input{tables/plan.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{Desarrollo del proyecto}
+\label{chapter:tres}
+
+\input{cap3.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Título del Capítulo Cuatro}
+\label{chapter:cuatro}
+
+\input{cap4.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{Conclusiones y líneas futuras}
+\label{chapter:Conclusiones}
+
+\input{cap5.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{Summary and Conclusions }
+\label{chapter:ingles}
+
+\input{cap6.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{Presupuesto}
+\label{chapter:Presupuesto}
+
+\input{cap7.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{\pagestyle{empty}}
+\thispagestyle{empty}
+\begin{appendix}
+
+\chapter{Título del Apéndice 1}
+\label{appendix:1}
+\input{apendice1.tex}
+
+\chapter{Título del Apéndice 2}
+\label{appendix:2}
+\input{apendice2.tex}
+
+\end{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{plain}
+
+\bibliography{memtfg}
+\nocite{*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
