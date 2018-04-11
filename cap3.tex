@@ -18,15 +18,6 @@ Espress.js  es un framework de desarrollo de aplicaciones web minimalista y flex
 
 Aquí tenemos una pequeña comparación de la popularidad que han tenido estas tecnologías en el último año.
 
-\begin{figure}[!th]
-\begin{center}
-\includegraphics[scale=0.6]{images/comparativa}
-\caption{Comparativa de Tecnologias usadas}
-\label{fig:Comparativa de Tecnologias usadas}
-\end{center}
-\end{figure}
-
-
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \subsection{Tecnologías Escogidas}
@@ -35,6 +26,14 @@ Aquí tenemos una pequeña comparación de la popularidad que han tenido estas t
 Finalmente se escogió Express.js, Node.js y Javascript como tecnologías principales a usar en este proyecto por las siguientes razones:
 
 En primer lugar, el uso de Node.js como tecnología de servidor aporta una gran ventaja ya que Javascript se usa en ambos lados, en el backend y en el frontend, reduciendo complejidad y tiempo de desarrollo ya que Express es bastante fácil de aprender y usar. Además, JavaScript es el lenguaje de programación más popular en el desarrollo web.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/comparativa}
+\caption{Comparativa de Tecnologias usadas}
+\label{fig:Comparativa de Tecnologias usadas}
+\end{center}
+\end{figure}
 
 Además de eso, la comunidad de Node.js está en constante crecimiento: la cantidad de preguntas de StackOverflow aumenta constantemente, por lo que la base de conocimiento para la tecnología es amplia. También hay que destacar el hecho de que Node.js sea de código abierto y gratuito. 
 
@@ -103,8 +102,57 @@ Como framework para los estilos de CSS se ha usado Materialize CSS, basado en ma
 \label{3:sec2}
 
 Para poder usar Github como estructura para la creación de aulas y tareas de código usaremos la Github REST API V3.
-La API permite acceder a las funcionalidades de Github
+La API permite acceder a las funcionalidades de Github, A continuación se detallará que funcionalidades de la Github API se han usado
+
+\begin{itemize}
+  \item Oauth
+  \item Organizaciones, Repositorios y Equipos
+\end{itemize}
+
+\subsection{OAuth}
+\label{3:2:1}
+
+La funcionalidad más básica que se usa es OAuth, que permite loguear al ususario con su cuenta de Github en
+Codelab.
+
+OAuth, sigla de Open Authorization es un estándar de código abierto que permite a un usuario compartir su información de un proveedor de servicios, como Google, Twitter, Facebook o en este caso de Github, con un consumidor, en nuestro caso Codelab.
+
+Desde el punto de vista de Codelab, OAuth proporciona un método de acceso a los datos de Github a la vez que se protegen los credenciales de la cuenta.
+
+Desde Codelab, solicitamos al usuario una serie de accesos y permisos en sus datos, para poder operar con las organizaciones y repositorios de Github.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/permisos}
+\caption{Vista de autorización de la OAuth App}
+\label{fig:Vista de la OAuth App}
+\end{center}
+\end{figure}
+
+Para tener acceso a OAuth primero debemos crear ua aplicación de OAuth en Github, simplemente tenemos que facilitarle a Github el nombre de nuestra aplicación, el dominio y un Callback URI, que es donde el servicio de Github redirigirá al usuario después de autorizar o denegar su aplicación,
+Github devolverá un API Key y un Secret API Key para que lo introduzcamos en la plataforma. 
+
+Para simplificar el uso de OAuth en la plataforma, se usa un framework llamado Passport.js diseñado para simplificar el Sign up y Log in para Express.js y que permite el uso de Github OAuth, 
+Passport nos solicita las claves de la API, un callback url y los scopes o permisos que el usuario debe aprobar, para devolver los datos solicitados al usuario en forma de token para poder acceder a las demás funcionalidades de la Github API.
+
+\subsection{Organizaciones, repositorios y equipos}
+\label{3:2:2}
+
+El acceso a las organizaciones, repositorios y equipos se realiza mediante una librería oficial de Github para Node.js
+llamada Octokit, que permite casi todas las funcionalidades de la Github REST API, además ofrece varias formas de llamar a sus funciones, mediante 
+el uso de async/await, promise y callback.
+
+Para abordar la gestión, se utiliza una clase llamada Github en la que el constructor inicializa la API con el token del usuario y cada método accede a una funcionalidad de la API.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/clasegh}
+\caption{Clase Github}
+\label{fig:Clase Github}
+\end{center}
+\end{figure}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Tercera sección de este capítulo}
+\section{Modelo-Vista-Controlador}
 \label{:sec3}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
