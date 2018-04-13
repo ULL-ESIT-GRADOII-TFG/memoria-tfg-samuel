@@ -152,7 +152,41 @@ Para abordar la gestión, se utiliza una clase llamada Github en la que el const
 \end{center}
 \end{figure}
 
+Las funcionalidades que aporta la API a Codelab son las siguientes:
+
+\begin{itemize}
+  \item Oauth
+  \item Obtener las organizaciones del usuario para usar .
+  \item Añadir usuarios a la organización.
+  \item Crear un repositorio en las organizaciones.
+  \item Añadir colaboradores al repositorio.
+  \item Crear equipos.
+  \item Añadir un equipo a un repositorio.
+  \item Comprobar si un usuario es miembro de un equipo.
+  \item Obtener los repositorios de una organización.
+  \item Crear un fichero en un repositorio.
+\end{itemize}
+
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Modelo-Vista-Controlador}
 \label{:sec3}
+
+El modelo vista controlador es una arquitectura de software que separa la lógica de la aplicación de la interfaz de usuario. Lo hace separando la aplicación en tres partes: el modelo, la vista y el controlador.
+
+El modelo maneja los datos fundamentales, responde a las solicitudes de información, solicitudes para insertar, actualizar o eliminar la información. Esto podría ser una base de datos o cualquier sistema de estructura de datos. En resumen, es la gestión de datos y datos de la aplicación.
+
+La vista proporciona la interfaz de usuario de la aplicación. Transformará los datos del modelo para mostrarselos al usuario de forma que pueda entender y manejar la información de forma sencilla e intuitiva.
+
+El controlador recibe los datos y acciones del usuario y realiza llamadas al modelo para manejar los datos y a la vista para mostrar el resultado de dichas acciones.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.3]{images/29}
+\caption{MVC}
+\label{fig:MVC}
+\end{center}
+\end{figure}
+
+
+
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
