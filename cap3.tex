@@ -171,6 +171,9 @@ Las funcionalidades que aporta la API a Codelab son las siguientes:
 \section{Modelo-Vista-Controlador}
 \label{:sec3}
 
+\subsection{El MVC}
+\label{3:3:1}
+
 El modelo vista controlador es una arquitectura de software que separa la lógica de la aplicación de la interfaz de usuario. Lo hace separando la aplicación en tres partes: el modelo, la vista y el controlador.
 
 El modelo maneja los datos fundamentales, responde a las solicitudes de información, solicitudes para insertar, actualizar o eliminar la información. Esto podría ser una base de datos o cualquier sistema de estructura de datos. En resumen, es la gestión de datos y datos de la aplicación.
@@ -187,6 +190,73 @@ El controlador recibe los datos y acciones del usuario y realiza llamadas al mod
 \end{center}
 \end{figure}
 
+\subsection{MVC en Codelab}
+\label{3:3:2}
 
+En la plataforma Codelab se ha implementado el Modelo Vista Controlador,
+usando las funciones que nos proporciona Express.JS.
+
+En el caso de las vistas Express nos permite establecer un motor de vistas.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=1.0]{images/defvistas}
+\caption{Motor de vistas}
+\label{fig:Motor de vistas}
+\end{center}
+\end{figure}
+
+Con la primera línea de código le indicamos que la carpeta de vistas estará en el directorio app/views y con la segunda línea le indicamos que motor de vistas usaremos: Pug JS. 
+
+En el código de abajo se puede ver la vista de error, que muestra al usuario el error y se le muestra el mensaje de error según el mensaje que se le pase desde el controlador.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/vista}
+\caption{Ejemplo de vista en Pug}
+\label{fig:Ejemplo de vista en Pug}
+\end{center}
+\end{figure}
+
+Pug es un motor de vistas bastante potente. Se pueden modular las vistas para reutilizar código y evitar repetirlo.
+Por ejemplo, se puede dividir el código en Head donde se definen los distintos enlaces al CSS, JS y se pone el titulo, 
+Nav que contiene la barra de navegación, que es igual para todos, el body que es el contenido de la vista y por último el footer.
+También se pueden hacer bucles para mostrar las tareas o las aulas o mostrar un valor u otro dependiendo de si se tiene rol de alumno o de profesor.
+
+\newpage
+
+En el caso de los modelos se usa Mongoose y estarán ubicados en la carpeta de app/models. Los modelos le prorcionan la información a los controladores usando las funciones de mongoose, find, update, delete y save entre otras.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/modelo}
+\caption{Ejemplo de modelo}
+\label{fig:Ejemplo de modelo}
+\end{center}
+\end{figure}
+
+Y por último, en el caso de los controladores, se definen funciones con las tareas que tienen que hacer
+de forma que todo esta modulado. El controlador le pasa la información a las vistas usando el comando render, que renderiza la vista de Pug a HTML.
+
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/controlador}
+\caption{Ejemplo de Controlador}
+\label{fig:Ejemplo de Controlador}
+\end{center}
+\end{figure}
+
+Router se usa para crear rutas modulares. Una instancia Router es un sistema de middleware y direccionamiento completo que a menudo se denomina pequeña aplicación o miniapplicación.
+
+Cabe destacar que para las rutas genéricas como aula o asignación en la que se puede representar los datos de cualquier aula o asignación se usan rutas que dependen de parámetos, es decir, rutas que muestran unos datos dependiendo de los parámetros que se le pasen.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=1.0]{images/ruta}
+\caption{Ejemplo de ruta}
+\label{fig:Ejemplo de ruta}
+\end{center}
+\end{figure}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
