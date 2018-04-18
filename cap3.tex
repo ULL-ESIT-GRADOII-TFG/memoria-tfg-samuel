@@ -262,10 +262,113 @@ Cabe destacar que para las rutas genéricas como aula o asignación en la que se
 \section{Diseño de la base de datos}
 \label{:sec4}
 
+Se usará una base de datos NoSQL, en concreto MongoDB como sistema gestor y Mongoose como ODM, por lo que nos referimos las tablas como colecciones, columnas como claves y filas como objeto, todas las claves se escribirán usando el estilo camel case.
+
+La base de datos es una parte muy importante de la plataforma, ya que en ella recae toda la responsabilidad de simular toda la estructura de aulas y tareas.
+
+\subsection{Colección de usuarios}
+\label{3:4:1}
+
+Para almecenar los datos de los usuarios, existe una colección llamada user, donde se almacenarán datos como el id de github o el token:
+
+\begin{itemize}
+  \item login: Nombre de usuario de github, de tipo String y clave primaria.
+  \item id: ID de github, de tipo string.
+  \item token: Token para autorizar a la api de github, de tipo string.
+  \item signupDate: Fecha en la que el usuario se registro, de tipo fecha
+  \item lastLogin: Fecha en la que usuario se logueo por última vez, de tipo fecha.
+\end{itemize}
+
+\subsection{Colección de organizaciones}
+\label{3:4:2}
+
+Para almacenar los datos de las organizaciones existe una colección llamada orgs, que simula las aulas. Cada aula tendrá los siguientes datos:
+
+\begin{itemize}
+  \item login: Nombre de la organización en github, de tipo String y clave primaria.
+  \item id: ID de github de la organización, de tipo string.
+  \item avatar: Enlace a la foto de la organización, de tipo string.
+  \item ownerID: ID del usuario dueño de la organización en github, de tipo string.
+  \item ownerLogin: Nombre del usuario dueño de la organización en github, de tipo string.
+  \item isActive: Booleano para identificar si las invitaciones a la organización están activas, de tipo boolean.
+  \item createDate: Fecha en la que se registro la organización, de tipo fecha.
+\end{itemize}
+
+\subsection{Colección de asignaciones}
+\label{3:4:3}
+
+Para almacenar los datos de las tareas existe una colección llamada assigns, que simula las tareas. Cada tarea contendrá los siguientes datos:
+
+\begin{itemize}
+  \item title: Nombre de la tarea, de tipo String y clave primaria.
+  \item ownerLogin: Nombre del usuario dueño de la tarea de tipo string.
+  \item assignType: Tipo de aisngación, grupal o individual, de tipo string.
+  \item repoType: Tipo de repositorio, privado o público, de tipo string.
+  \item orgLogin: Nombre de la organización de github (aula) a la que pertenece la asignación, de tipo string.
+  \item isActive: Booleano para identificar si las invitaciones a la tarea están activas, de tipo boolean.
+  \item createDate: Fecha en la que se registro la tarea, de tipo fecha.
+\end{itemize}
+
+\subsection{Colección de asignaciones individuales}
+\label{3:4:4}
+
+Para almacenar los datos de las tareas individuales existe una colección llamada repos, que simula las tareas individuales. Cada tarea contendrá los siguientes datos:
+
+\begin{itemize}
+  \item name: Nombre del repositorio en github, de tipo String y clave primaria.
+  \item assignName: Nombre de la tarea, de tipo string.
+  \item StudentLogin: Nombre de github del alumno que realizará la tarea, de tipo string.
+  \item ownerLogin: Nombre de github del dueño del aula, de tipo string
+  \item orgLogin: Nombre de la organización de github (aula) a la que pertenece el repo, de tipo string.
+  \item createDate: Fecha en la que se registro la tarea, de tipo fecha.
+\end{itemize}
+
+\subsection{Colección de asignaciones grupales}
+\label{3:4:5}
+
+Para almacenar los datos de las tareas grupales existe una colección llamada groups, que simula las tareas grupales. Cada tarea groupal contendrá los siguientes datos:
+
+\begin{itemize}
+  \item name: Nombre del repositorio en github, de tipo String y clave primaria.
+  \item team: Nombre del equipo que realizará la tarea, de tipo string.
+  \item idTeam: ID del equipo que realizará la tarea, de tipo string.
+  \item assignName: Nombre de la tarea, de tipo string.
+  \item StudentLogin: Nombre de github del alumno que realizará la tarea, de tipo string.
+  \item ownerLogin: Nombre de github del dueño del aula, de tipo string
+  \item orgLogin: Nombre de la organización de github (aula) a la que pertenece el repo, de tipo string.
+  \item createDate: Fecha en la que se registro la tarea grupal, de tipo fecha.
+\end{itemize}
+
+\subsection{Colección de equipos}
+\label{3:4:6}
+
+Para almacenar los datos de los equipos existe una colección llamada teams. Cada equipo contendrá los siguientes datos:
+
+\begin{itemize}
+  \item name: Nombre del equipo, de tipo string.
+  \item id: ID del equipo que realizará la tarea, de tipo string.
+  \item members: Miembros que forman parte del equipo, de tipo array de string.
+  \item orgLogin: Nombre de la organización de github (aula) a la que pertenece el equipo, de tipo string.
+  \item createDate: Fecha en la que se registro el equipo, de tipo fecha.
+\end{itemize}
+
+\subsection{Colección de alumnos}
+\label{3:4:7}
+
+Para almacenar los alumnos de un aula existe una colección llamada students. Cada alumno tendrá los siguientes datos:
+
+\begin{itemize}
+  \item name: Nombre del alumno, de tipo string.
+  \item surname: Apellido del alumno, de tipo string.
+  \item email: Email del alumno, de tipo string.
+  \item idGithub: Nombre de usuario del alumno en github, de tipo string
+  \item createDate: Fecha en la que se registro el alumno de tipo fecha.
+\end{itemize}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \section{Funcionalidades para profesores}
 \label{:sec5}
+
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
