@@ -427,12 +427,10 @@ Por último si nos encontramos en la vista de asignación se verá: repositorios
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-
-
 \section{Funcionalidades}
 \label{:sec6}
 
-El proyecto se divide en tres paquetes de funcionalidades:
+El proyecto se divide en tres paquetes de funcionalidades, Cada paquete incluye funcionalidades para cada rol:
 
 \begin{itemize}
   \item Funcionalidades básicas
@@ -440,13 +438,120 @@ El proyecto se divide en tres paquetes de funcionalidades:
   \item Funcionalidades para el alumno
 \end{itemize}
 
-Cada paquete include funcionalidades para cada rol.
-
 \subsection{Funcionalidades básicas}
 \label{3:6:1}
 
+Las funcionalidades básicas son comunes a todos los roles que participan en la plataforma, tanto alumnos como profesores, 
+
+Todos los usuarios de la aplicación pueden hacer Log in, Log out y consultar un perfil.
+
+En el perfil del usuario se puede consultar la información básica del usuario en Github, foto de perfil, nombre de usuario, correo y en el caso de que sea un alumno puede consultar las tareas que tiene en grupo o individualmente.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.2]{images/perfil}
+\caption{Perfil de usuario}
+\label{fig:Perfil de usuario}
+\end{center}
+\end{figure}
+
+\newpage
+
 \subsection{Funcionalidades para profesores}
 \label{3:6:2}
+
+Los profesores tendrán el grupo de funcionalidades más completo, ya que ellos son los protagonistas de la app, los profesores podrán desempeñar las siguientes tareas:
+
+\begin{itemize}
+  \item Añadir una organización como aula.
+  \item Invitar alumnos al aula.
+  \item Crear una tarea.
+  \item Añadir un fichero de alumnos asociado al aula.
+  \item Editar las opciones del aula.
+  \item Invitar alumnos a la tarea.
+  \item Editar las opciones de la tarea.
+  \item Crear un repositorio de evaluación de cada tarea.
+\end{itemize}
+
+\subsubsection{Añadir una organización}
+
+Añadir una organización como aula es la primera funcionalidad que puede desempeñar un profesor, en esta funcionalidad el profesor podrá elegir una organización de las que tenga creadas y a las que haya autorizado el acceso de terceros, 
+es decir, el profesor tendrá que crear una organización y darle acceso de terceros antes de poder asignarla como aula en Codelab, una vez creado el aula, se le redirigirá al profesor a la vista donde puede ver todas sus aulas.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.4]{images/aula}
+\caption{Aula}
+\label{fig:Aula}
+\end{center}
+\end{figure}
+
+\newpage
+\subsubsection{Invitar alumnos al aula}
+
+Para tenerlo todo bien organizado, será necesario tener a todos los alumnos incluidos de la organización de Github y que los alumnos tengan asignados el rol de miembro en lugar de colaboradores externos. Aunque las diferencias entre los colaboradores externos y los miembros son mínimas, 
+es importante que los alumnos estén en la organización como miembros, ya que los colaboradores externos no tendrán acceso a todos los repositorios de la organización, sólo a aquellos en los que el profesor los incluya y además no podrán crear equipos, 
+ver los miembros de la organización, ser un maintainer de un equipo o mencionar a otrose equipos visibles.
+
+Por eso, el profesor podrá invitar a los alumnos a la organización mediante un enlace de invitación, que el alumno deberá aceptar para formar parte de la organización, así, el profesor podrá automatizar 
+el proceso de admisión en el aula, sin tener que añadir alumnos uno a uno buscando por el identificador de Github.
+
+Desde las opciones del aula el profesor podrá activar o desactivar las invitaciones para que sus alumnos puedan unirse.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.8]{images/invitacion}
+\caption{Invitación}
+\label{fig:Invitacion}
+\end{center}
+\end{figure}
+
+\subsubsection{Crear una nueva tarea}
+
+Esta funcionalidad destaca entre todas, crear la tarea es la funcionalidad más importante de la plataforma, ya que esta funcionalidad permite la automatización para la creación de los repositorios.
+Si el profesor quiere crear una tarea es tan fácil como asignarle un título, elegir si el repositorio es público o privado y por último definir si la tarea es individual o grupal.
+
+Después de crear la tarea, se redirigirá a la vista de la tarea, donde el profesor podrá gestionar las tareas de cada alumno. se podrá ver una breve información del usuario si el profesor añadió un fichero xslx o csv con la información de los alumnos.
+
+En esa vista aparecerá un pequeño menú que tiene la pestaña descrita en el párrafo anterior, una pestaña para el enlace de invitación, una pestaña para crear el repositorio de evaluación una última pestaña de opciones, todas estas, son las opciones disponibles para operar con las tareas.
+
+Desde las opciones de la tarea el profesor podrá activar o desactivar las invitaciones para que sus alumnos puedan unirse.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/tarea}
+\caption{Nueva tarea}
+\label{fig:Nueva tarea}
+\end{center}
+\end{figure}
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[scale=0.5]{images/gestion}
+\caption{Gestión de tareas}
+\label{fig:Gestion de tareas}
+\end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Añadir un fichero de alumnos asociado al aula}
+
+El mayor problema que tiene asocidar Github con la automatizacion de tareas es asociarle información a cada alumno, ya que pueden crearse una cuenta en Github con el nombre, foto o ID de github que les apetezca 
+por lo que identificar a un alumno puede ser complicado. 
+
+Por este motivo, la plataforma tiene un apartado para subir un fichero xslx o csv con información asociada a los alumnos de un aula en concreto, la información que debe ser asociada es la siguiente:
+
+\begin{itemize}
+  \item Nombre.
+  \item Apellido.
+  \item Dirección de correo.
+  \item ID de Github.
+  \item Nombre de la organización de Github que será usada como aula.
+\end{itemize}
+
+La ventaja es que el campus virtual genera un archivo en formato xslx con la mayoria de datos necesarios, salvo el ID de github de cada alumno y el nombre de la organización, es decir, el profesor tendría que solicitar al alumno su ID de github y añadir la organización de github que se usará como aula.
+Por tanto, el profesor no debe escribir un fichero xslx desde cero.
 
 \subsection{Funcionalidades para alumnos}
 \label{3:6:3}
