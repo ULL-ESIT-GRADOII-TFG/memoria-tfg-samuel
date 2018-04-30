@@ -553,6 +553,30 @@ Por este motivo, la plataforma tiene un apartado para subir un fichero xslx o cs
 La ventaja es que el campus virtual genera un archivo en formato xslx con la mayoria de datos necesarios, salvo el ID de github de cada alumno y el nombre de la organización, es decir, el profesor tendría que solicitar al alumno su ID de github y añadir la organización de github que se usará como aula.
 Por tanto, el profesor no debe escribir un fichero xslx desde cero.
 
+\subsubsection{Crear un repositorio de evaluación de cada tarea}
+
+Otro gran problema de automatizar la creacion de tareas es la corrección de las mismas. Desde el punto de vista de cada profesor se vuelve engorroso clonar cada repositorio, y ejecutar todos los comandos para que la práctica del alumno esté lista para corregir.
+
+Pongamos de ejemplo la asignatura de Procesadores de Lenguajes que tiene 31 alumnos, es decir, cada tarea podría tener hasta 31 repositorios, que debería clonar uno a uno y ejecutar dentro de cada repositorio local los comandos para que funcione cada proyecto, por ejemplo npm install, para instalar las dependencias NodeJS.
+
+La solución a este problema se propone haciendo uso del comando git combinado con la opción submodule. Git submodule nos proporciona un repositorio incrustado dentro de otro, es decir, en nuestro caso, sería un repositorio de alumno incrustado dentro de un repositorio de evaluación que contiene todos los repositorios de esa tarea, esto lo consigue medianle la creación del fichero .gitmodules, que contiene todos los repositorios submodulos. Git submodule tiene varias opciones: 
+
+\begin{itemize}
+\item git submodule init repo: Inicializa el fichero .gitmodules con el repositorio que se le pase.
+\item git submodule add repo: Nos permite añadir un repositorio como submódulo del repositorio actual, crea el fichero .gitmodules si no existe.
+\item git submodule update repo: Actualiza los submodulos.
+\item git submodule foreach repo: Permite ejecutar un comando en cada submódulo de forma paralela.
+\item git submodule sync repo: Sincroniza los submodulos con el remoto.
+\end{itemize}
+
+Una vez explicado que es git submodule y vista su utilidad veremos como se integra con Codelab y la automatización de corrección. 
+
+Codelab crea un repositorio de corrección en Github con el nombre eval-nombre-tarea, en un principio la idea fue crear un repositorio que contuviese como sumódulos todos los repositorios de la tarea en cuestión, pero la API de Github no permite esta funcionalidad, como segunda opción se pensó crear un fichero que contuviese directamente el fichero .gitmodules, pero no funciona si el repositorio no está clonado y como última opción se crea un repositorio que contiene un pequeño script en bash que contiene una línea con el comando git submodule add <repo> por cada repositorio de alumno, de forma que al ejecutar el comando se añaden todos los repositorios de forma masiva como submódulos.
+
+Una vez creado el repositorio de evaluación, el profesor debe clonar dicho repositorio y ejecutar el script eval.sh, añadiendo todos los repos de alumnos como submodules de forma masiva como se explicó anteriormente. Una vez hecho esto, el profesor podrá ejecutar comodamente comandos en todos los repositorios de forma paralela usando el comando git submodule foreach repo, como por ejemplo git submodule foreach 'npm i', que instala todas las dependencias de NodeJS en cada práctica.
+
+\newpage 
+
 \subsection{Funcionalidades para alumnos}
 \label{3:6:3}
 
