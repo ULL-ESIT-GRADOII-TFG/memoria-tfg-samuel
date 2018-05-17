@@ -14,9 +14,9 @@ Django es un framework para aplicaciones web gratuito y open source, escrito en 
 Ruby on Rails, también conocido como RoR o Rails, es un framework de aplicaciones web de código abierto escrito en el lenguaje de programación Ruby, siguiendo el patrón Modelo Vista Controlador (MVC).
 
 {\bf Express.js - Javascript}
-Espress.js  es un framework de desarrollo de aplicaciones web minimalista y flexible para Node.js. Está inspirado en Sinatra, además es robusto, rápido, flexible y muy simple, además, es compatible con el patrón Modelo Vista Controlador.
+Espress.js \cite{B6} es un framework de desarrollo de aplicaciones web minimalista y flexible para Node.js \cite{B1}. Está inspirado en Sinatra, además es robusto, rápido, flexible y muy simple, además, es compatible con el patrón Modelo Vista Controlador.
 
-Aquí tenemos una pequeña comparación de la popularidad que han tenido estas tecnologías en el último año. Véase la fFigura \ref{3:1:2}.
+Aquí tenemos una pequeña comparación de la popularidad que han tenido estas tecnologías en el último año. Véase la figura \ref{3:1:2}.
 
 
 \begin{figure}[!th]
@@ -39,7 +39,7 @@ Finalmente, Node nos ofrece NPM, un gestor de paquetes que dispone de una gran c
 
 {\bf NPM}
 
-NPM es un administrador de paquetes para Node.js con cientos de miles de paquetes. Aunque crea parte de la estructura del directorio del proyecto, este no es el objetivo principal.
+NPM \cite{B18} es un administrador de paquetes para Node.js con cientos de miles de paquetes. Aunque crea parte de la estructura del directorio del proyecto, este no es el objetivo principal.
 
 El objetivo principal es la automatización de dependencias y gestión de paquetes de cada proyecto. Esto significa que puede especificar todas las dependencias de su proyecto dentro del fichero \verb|package.json| usando el comando 
 \verb|npm i -s nombrepaquete|, de forma que cada vez que un usuario clone el proyecto en su máquina simplemente tenga ejecutar \verb|npm install| e inmediatamente se descargan e instalan todas las dependencias necesarias para el funcionamiento del proyecto en el directorio \verb|node modules/|. Además, también sirve para especificar en qué versión está su proyecto.
@@ -62,14 +62,15 @@ Express también permite crear una aplicación web siguiendo el patrón de dise�
 
 {\bf Github API}
 
-Para poder usar Github como estructura necesitaremos hacer uso de su Github REST API v3. 
+Para poder usar Github como estructura necesitaremos hacer uso de su Github REST API v3 \cite {B3}. 
 La API nos permitirá acceder a los servicios que ofrece Github de forma externa, es decir, podremos crear repositorios, usar organizaciones como clases y manejar otros servicios, como consulta de información sobre el usuario.
-Para poder acceder a la clave de cada usuario, debemos usar un Token generado por Github, es decir, una cadena que nos permitirá  identificarnos para realizar transacciones usando la API, en este caso, el token será generado usando las aplicaciones OAuth que nos ofrece Github para que el usuario haga login con su cuenta de usuario de Github, sin necesidad de poner su usuario y contraseña de Github en la plataforma Codelab.
+Para poder acceder a la clave de cada usuario, debemos usar un Token generado por Github, es decir, una cadena que nos permitirá  identificarnos para realizar transacciones usando la API, en este caso, el token será generado 
+usando las aplicaciones OAuth que nos ofrece Github para que el usuario haga login con su cuenta de usuario de Github, sin necesidad de poner su usuario y contraseña de Github en la plataforma Codelab.
 La Github REST API v3 tiene además varias librerías de terceros y tres librerías oficiales escritas en Ruby, Javascript y .Net.
 
 {\bf MongoDB}
 
-MongoDB es un sistema gestor de base de datos NoSQL, es decir,
+MongoDB \cite{B9} es un sistema gestor de base de datos NoSQL, es decir,
 MongoDB es un sistema de bases de datos no relacional, en lugar de
 almacenar los datos en tablas, se almacenan colecciones o documentos,
 que está formado por objetos, y estos a su vez por claves y cada
@@ -87,20 +88,20 @@ BSON.  Véase la figura \ref{fig:NoSQLvsSQL}.
 
 {\bf Mongoose}
 
-Mongoose es un una herramienta para el diseño de objetos de MongoDB. 
+Mongoose \cite{B8} es un una herramienta para el diseño de objetos de MongoDB. 
 Mongoose provee una serie de métodos y funciones para manejar la base de datos en MongoDB.
 
 {\bf Motor de vistas}
 
-Como motor de vistas para el proyecto se ha elegido Pug, antes conocido como Jade, un motor de vistas implementado en Javascript para su uso en NodeJS y que dispone de una fácil integración con Express.JS. 
+Como motor de vistas para el proyecto se ha elegido Pug \cite{B7}, antes conocido como Jade, un motor de vistas implementado en Javascript para su uso en NodeJS y que dispone de una fácil integración con Express.JS. 
 
 {\bf Automatización de tareas}
 
-Para la automatización de tareas como generar el fichero de variables de entorno o poner en marcha un servidor nodemon se ha usado Gulp, una herramienta que permite automatizar tareas en Node.js, es simple y bastante fácil de usar.
+Para la automatización de tareas como generar el fichero de variables de entorno o poner en marcha un servidor nodemon se ha usado Gulp \cite{B2}, una herramienta que permite automatizar tareas en Node.js, es simple y bastante fácil de usar.
 
 {\bf Framework de CSS}
 
-Como framework para los estilos de CSS se ha usado Materialize CSS, basado en material design. Ofrece varias opciones a la hora de diseñar la plataforma, permitiendo un diseño más minimalista o un diseño más cargado y vistoso.
+Como framework para los estilos de CSS se ha usado Materialize CSS \cite{B19}, basado en material design \cite{b16}. Ofrece varias opciones a la hora de diseñar la plataforma, permitiendo un diseño más minimalista o un diseño más cargado y vistoso.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Github API}
@@ -117,7 +118,7 @@ La API permite acceder a las funcionalidades de Github, A continuación se detal
 \subsection{OAuth}
 \label{3:2:1}
 
-La funcionalidad más básica que se usa es OAuth, que permite loguear al usuario con su cuenta de Github en
+La funcionalidad más básica que se usa es OAuth \cite{B17}, que permite loguear al usuario con su cuenta de Github en
 Codelab.
 
 OAuth, sigla de Open Authorization es un estándar de código abierto que permite a un usuario compartir su información de un proveedor de servicios, como Google, Twitter, Facebook o en este caso de Github, con un consumidor, en nuestro caso Codelab.
@@ -185,7 +186,7 @@ El modelo maneja los datos fundamentales, responde a las solicitudes de informac
 
 La vista proporciona la interfaz de usuario de la aplicación. Transformará los datos del modelo para mostrárselos al usuario de forma que pueda entender y manejar la información de forma sencilla e intuitiva.
 
-El controlador recibe los datos y acciones del usuario y realiza llamadas al modelo para manejar los datos y a la vista para mostrar el resultado de dichas acciones.
+El controlador recibe los datos y acciones del usuario y realiza llamadas al modelo para manejar los datos y a la vista para mostrar el resultado de dichas acciones. Véase la figura \ref{fig:MVC}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -201,7 +202,7 @@ El controlador recibe los datos y acciones del usuario y realiza llamadas al mod
 En la plataforma Codelab se ha implementado el Modelo Vista Controlador,
 usando las funciones que nos proporciona Express.JS.
 
-En el caso de las vistas Express nos permite establecer un motor de vistas.
+En el caso de las vistas Express nos permite establecer un motor de vistas. Véase la figura \ref{fig:Motor de vistas}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -214,6 +215,7 @@ En el caso de las vistas Express nos permite establecer un motor de vistas.
 Con la primera línea de código le indicamos que la carpeta de vistas estará en el directorio app/views y con la segunda línea le indicamos que motor de vistas usaremos: Pug JS. 
 
 En el código de abajo se puede ver la vista de error, que muestra al usuario el error y se le muestra el mensaje de error según el mensaje que se le pase desde el controlador.
+Véase la figura \ref{fig:Ejemplo de vista en Pug}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -231,6 +233,7 @@ También se pueden hacer bucles para mostrar las tareas o las aulas o mostrar un
 \newpage
 
 En el caso de los modelos se usa Mongoose y estarán ubicados en la carpeta de app/models. Los modelos le proporcionan la información a los controladores usando las funciones de mongoose, find, update, delete y save entre otras.
+Véase la figura \ref{fig:Ejemplo de modelo}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -242,7 +245,7 @@ En el caso de los modelos se usa Mongoose y estarán ubicados en la carpeta de a
 
 Y por último, en el caso de los controladores, se definen funciones con las tareas que tienen que hacer
 de forma que todo esta modulado. El controlador le pasa la información a las vistas usando el comando render, que renderiza la vista de Pug a HTML.
-
+Véase la figura \ref{fig:Ejemplo de Controlador}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -255,6 +258,7 @@ de forma que todo esta modulado. El controlador le pasa la información a las vi
 Router se usa para crear rutas modulares. Una instancia Router es un sistema de middleware y direccionamiento completo que a menudo se denomina pequeña aplicación o mini aplicación.
 
 Cabe destacar que para las rutas genéricas como aula o asignación en la que se puede representar los datos de cualquier aula o asignación se usan rutas que dependen de parámetros, es decir, rutas que muestran unos datos dependiendo de los parámetros que se le pasen.
+Véase la figura \ref{fig:Ejemplo de ruta}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -390,8 +394,8 @@ las organizaciones simularán las aulas y los repositorios las tareas.
 \label{3:5:1}
 
 El diseño se realizó en Materialize CSS, un framework basando en material dessign. Como se puede apreciar, el diseño es bastante minimalista e intuitivo, aunque esté dirigido a un sector que maneja las nuevas tecnologías, se pretende que la plataforma sea lo más simple posible de manejar, tanto para profesores como para alumnos.
-El usuario no debe registrarse, simplemente debe tener una cuenta de Github y loguearse con ella aceptando los permisos para poder ofrecerle los servicios de la plataforma, por lo que no es necesario rellenar ningun formulario de Log in o Sign Up.
-
+El usuario no debe registrarse, simplemente debe tener una cuenta de Github y loguearse con ella aceptando los permisos para poder ofrecerle los servicios de la plataforma, por lo que no es necesario rellenar ningun formulario de Log in o Sign Up. 
+Véase la figura \ref{fig:Landing page}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -409,6 +413,7 @@ El usuario no debe registrarse, simplemente debe tener una cuenta de Github y lo
 La navegación dentro de la aplicación es bastante simple e intuitiva, existen dos barras de navegación:
 
 La primera es la barra superior, que contiene los botones de Sign In si no se está logueado y los botones de Perfil, Aulas y Sign Out en caso de que se esté logueado.
+Véase la figura \ref{fig:Barra de navegacion}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -423,6 +428,7 @@ La segunda está dentro de cada vista, si estamos en la vista de aulas veremos d
 En cambio si estamos en la vista de aula veremos tareas, enlace de invitación, nueva asignación, opciones, alumnos y subir fichero de alumnos.
 
 Por último si nos encontramos en la vista de asignación se verá: repositorios, enlace de invitación, repositorio de evaluación y opciones.
+Véase la figura \ref{fig:Barra de navegacion de aula}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -453,6 +459,7 @@ Las funcionalidades básicas son comunes a todos los roles que participan en la 
 Todos los usuarios de la aplicación pueden hacer Log in, Log out y consultar un perfil.
 
 En el perfil del usuario se puede consultar la información básica del usuario en Github, foto de perfil, nombre de usuario, correo y en el caso de que sea un alumno puede consultar las tareas que tiene en grupo o individualmente.
+Véase la figura \ref{fig:Perfil de usuario}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -484,6 +491,7 @@ Los profesores tendrán el grupo de funcionalidades más completo, ya que ellos 
 
 Añadir una organización como aula es la primera funcionalidad que puede desempeñar un profesor, en esta funcionalidad el profesor podrá elegir una organización de las que tenga creadas y a las que haya autorizado el acceso de terceros, 
 es decir, el profesor tendrá que crear una organización y darle acceso de terceros antes de poder asignarla como aula en Codelab, una vez creado el aula, se le redirigirá al profesor a la vista donde puede ver todas sus aulas.
+Véase la figura \ref{fig:Aula}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -504,6 +512,7 @@ Por eso, el profesor podrá invitar a los alumnos a la organización mediante un
 el proceso de admisión en el aula, sin tener que añadir alumnos uno a uno buscando por el identificador de Github.
 
 Desde las opciones del aula el profesor podrá activar o desactivar las invitaciones para que sus alumnos puedan unirse.
+Véase la figura \ref{fig:Invitacion}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -523,6 +532,7 @@ Después de crear la tarea, se redirigirá a la vista de la tarea, donde el prof
 En esa vista aparecerá un pequeño menú que tiene la pestaña descrita en el párrafo anterior, una pestaña para el enlace de invitación, una pestaña para crear el repositorio de evaluación una última pestaña de opciones, todas estas, son las opciones disponibles para operar con las tareas.
 
 Desde las opciones de la tarea el profesor podrá activar o desactivar las invitaciones para que sus alumnos puedan unirse.
+Véase la figura \ref{fig:Nueva tarea} y \ref{fig:Gestion de tareas}
 
 \begin{figure}[!th]
 \begin{center}
@@ -564,23 +574,23 @@ Por tanto, el profesor no debe escribir un fichero xslx desde cero.
 
 Otro gran problema de automatizar la creación de tareas es la corrección de las mismas. Desde el punto de vista de cada profesor se vuelve engorroso clonar cada repositorio, y ejecutar todos los comandos para que la práctica del alumno esté lista para corregir.
 
-Pongamos de ejemplo la asignatura de Procesadores de Lenguajes que tiene 31 alumnos, es decir, cada tarea podría tener hasta 31 repositorios, que debería clonar uno a uno y ejecutar dentro de cada repositorio local los comandos para que funcione cada proyecto, por ejemplo npm install, para instalar las dependencias NodeJS.
+Pongamos de ejemplo la asignatura de Procesadores de Lenguajes que tiene 31 alumnos, es decir, cada tarea podría tener hasta 31 repositorios, que debería clonar uno a uno y ejecutar dentro de cada repositorio local los comandos para que funcione cada proyecto, por ejemplo \verb|npm install|, para instalar las dependencias NodeJS.
 
-La solución a este problema se propone haciendo uso del comando git combinado con la opción submodule. Git submodule nos proporciona un repositorio incrustado dentro de otro, es decir, en nuestro caso, sería un repositorio de alumno incrustado dentro de un repositorio de evaluación que contiene todos los repositorios de esa tarea, esto lo consigue mediante la creación del fichero .gitmodules, que contiene todos los repositorios submodulos. Git submodule tiene varias opciones: 
+La solución a este problema se propone haciendo uso del comando \verb|git| combinado con la opción submodule. \verb|git| submodule nos proporciona un repositorio incrustado dentro de otro, es decir, en nuestro caso, sería un repositorio de alumno incrustado dentro de un repositorio de evaluación que contiene todos los repositorios de esa tarea, esto lo consigue mediante la creación del fichero .gitmodules, que contiene todos los repositorios submodulos. \verb|git| submodule tiene varias opciones: 
 
 \begin{itemize}
-\item git submodule init repo: Inicializa el fichero .gitmodules con el repositorio que se le pase.
-\item git submodule add repo: Nos permite añadir un repositorio como submódulo del repositorio actual, crea el fichero .gitmodules si no existe.
-\item git submodule update repo: Actualiza los submodulos.
-\item git submodule foreach repo: Permite ejecutar un comando en cada submódulo de forma paralela.
-\item git submodule sync repo: Sincroniza los submodulos con el remoto.
+\item \verb|git submodule init repo| Inicializa el fichero .gitmodules con el repositorio que se le pase.
+\item \verb|git| submodule add repo| Nos permite añadir un repositorio como submódulo del repositorio actual, crea el fichero .gitmodules si no existe.
+\item \verb|git| submodule update repo| Actualiza los submodulos.
+\item \verb|git| submodule foreach repo| Permite ejecutar un comando en cada submódulo de forma paralela.
+\item \verb|git| submodule sync repo| Sincroniza los submodulos con el remoto.
 \end{itemize}
 
-Una vez explicado que es git submodule y vista su utilidad veremos como se integra con Codelab y la automatización de corrección. 
+Una vez explicado que es \verb|git| submodule y vista su utilidad veremos como se integra con Codelab y la automatización de corrección. 
 
-Codelab crea un repositorio de corrección en Github con el nombre eval-nombre-tarea, en un principio la idea fue crear un repositorio que contuviese como submódulos todos los repositorios de la tarea en cuestión, pero la api de Github no permite esta funcionalidad, como segunda opción se pensó crear un fichero que contuviese directamente el fichero .gitmodules, pero no funciona si el repositorio no está clonado y como última opción se crea un repositorio que contiene un pequeño script en bash que contiene una línea con el comando git submodule add <repo> por cada repositorio de alumno, de forma que al ejecutar el comando se añaden todos los repositorios de forma masiva como submódulos.
+Codelab crea un repositorio de corrección en Github con el nombre eval-nombre-tarea, en un principio la idea fue crear un repositorio que contuviese como submódulos todos los repositorios de la tarea en cuestión, pero la api de Github no permite esta funcionalidad, como segunda opción se pensó crear un fichero que contuviese directamente el fichero \verb|.gitmodules|, pero no funciona si el repositorio no está clonado y como última opción se crea un repositorio que contiene un pequeño script en bash que contiene una línea con el comando \verb|git| submodule add <repo> por cada repositorio de alumno, de forma que al ejecutar el comando se añaden todos los repositorios de forma masiva como submódulos.
 
-Una vez creado el repositorio de evaluación, el profesor debe clonar dicho repositorio y ejecutar el script eval.sh, añadiendo todos los repos de alumnos como submodules de forma masiva como se explicó anteriormente. Una vez hecho esto, el profesor podrá ejecutar cómodamente comandos en todos los repositorios de forma paralela usando el comando git submodule foreach repo, como por ejemplo git submodule foreach 'npm i', que instala todas las dependencias de NodeJS en cada práctica.
+Una vez creado el repositorio de evaluación, el profesor debe clonar dicho repositorio y ejecutar el script \verb|eval.sh|, añadiendo todos los repos de alumnos como submodules de forma masiva como se explicó anteriormente. Una vez hecho esto, el profesor podrá ejecutar cómodamente comandos en todos los repositorios de forma paralela usando el comando \verb|git| submodule foreach repo, como por ejemplo \verb|git| submodule foreach \verb|npm i|, que instala todas las dependencias de NodeJS en cada práctica.
 
 \newpage 
 
@@ -590,6 +600,7 @@ Una vez creado el repositorio de evaluación, el profesor debe clonar dicho repo
 \subsubsection{Perfil}
 
 Como alumno el usuario puede visitar el perfil, donde encontrará información básica de Github y dos pestañas, en las que el alumno tiene un historial de las tareas que ha realizado de forma grupal e individual.
+Véase la figura \ref{fig:Perfil}.
 
 \begin{figure}[!th]
 \begin{center}
