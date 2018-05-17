@@ -16,14 +16,8 @@ Ruby on Rails, también conocido como RoR o Rails, es un framework de aplicacion
 {\bf Express.js - Javascript}
 Espress.js  es un framework de desarrollo de aplicaciones web minimalista y flexible para Node.js. Está inspirado en Sinatra, además es robusto, rápido, flexible y muy simple, además, es compatible con el patrón Modelo Vista Controlador.
 
-Aquí tenemos una pequeña comparación de la popularidad que han tenido estas tecnologías en el último año.
+Aquí tenemos una pequeña comparación de la popularidad que han tenido estas tecnologías en el último año. Véase la fFigura \ref{3:1:2}.
 
-\subsection{Tecnologías Escogidas}
-\label{3:1:2}
-
-Finalmente se escogió Express.js, Node.js y Javascript como tecnologías principales a usar en este proyecto por las siguientes razones:
-
-En primer lugar, el uso de Node.js como tecnología de servidor aporta una gran ventaja ya que Javascript se usa en ambos lados, en el backend y en el frontend, reduciendo complejidad y tiempo de desarrollo ya que Express es bastante fácil de aprender y usar. Además, JavaScript es el lenguaje de programación más popular en el desarrollo web.
 
 \begin{figure}[!th]
 \begin{center}
@@ -32,6 +26,12 @@ En primer lugar, el uso de Node.js como tecnología de servidor aporta una gran 
 \label{fig:Comparativa de Tecnologias usadas}
 \end{center}
 \end{figure}
+\subsection{Tecnologías Escogidas}
+\label{3:1:2}
+
+Finalmente se escogió Express.js, Node.js y Javascript como tecnologías principales a usar en este proyecto por las siguientes razones:
+
+En primer lugar, el uso de Node.js como tecnología de servidor aporta una gran ventaja ya que Javascript se usa en ambos lados, en el backend y en el frontend, reduciendo complejidad y tiempo de desarrollo ya que Express es bastante fácil de aprender y usar. Además, JavaScript es el lenguaje de programación más popular en el desarrollo web.
 
 Además de eso, la comunidad de Node.js está en constante crecimiento: la cantidad de preguntas de StackOverflow aumenta constantemente, por lo que la base de conocimiento para la tecnología es amplia. También hay que destacar el hecho de que Node.js sea de código abierto y gratuito. 
 
@@ -41,9 +41,10 @@ Finalmente, Node nos ofrece NPM, un gestor de paquetes que dispone de una gran c
 
 NPM es un administrador de paquetes para Node.js con cientos de miles de paquetes. Aunque crea parte de la estructura del directorio del proyecto, este no es el objetivo principal.
 
-El objetivo principal, es la automatización de dependencias y gestión de paquetes de cada proyecto. Esto significa que puede especificar todas las dependencias de su proyecto dentro del fichero package.json usando el comando npm i -s nombrepaquete, de forma que cada vez que un usuario clone el proyecto en su máquina simplemente tenga ejecutar npm install e inmediatamente se descargan e instalan todas las dependencias necesarias para el funcionamiento del proyecto en el directorio node modules/. Además, también sirve para especificar en qué versión está su proyecto.
+El objetivo principal es la automatización de dependencias y gestión de paquetes de cada proyecto. Esto significa que puede especificar todas las dependencias de su proyecto dentro del fichero \verb|package.json| usando el comando 
+\verb|npm i -s nombrepaquete|, de forma que cada vez que un usuario clone el proyecto en su máquina simplemente tenga ejecutar \verb|npm install| e inmediatamente se descargan e instalan todas las dependencias necesarias para el funcionamiento del proyecto en el directorio \verb|node modules/|. Además, también sirve para especificar en qué versión está su proyecto.
 
-También es posible descargar manualmente los paquetes, copiarlo en el directorio nodemodules/ y usarlo de esa manera. Sin embargo, a medida que crezca el proyecto y la lista de dependencias, llevará mucho tiempo instalar los paquetes necesarios y será una tarea engorrosa. También hace que colaborar y compartir tu proyecto sea mucho más difícil
+También es posible descargar manualmente los paquetes, copiarlo en el directorio \verb|nodemodules/| y usarlo de esa manera. Sin embargo, a medida que crezca el proyecto y la lista de dependencias, llevará mucho tiempo instalar los paquetes necesarios y será una tarea engorrosa. También hace que colaborar y compartir tu proyecto sea mucho más difícil
 
 {\bf Express.js}
 
@@ -68,13 +69,19 @@ La Github REST API v3 tiene además varias librerías de terceros y tres librer�
 
 {\bf MongoDB}
 
-MongoDB es un sistema gestor de base de datos NoSQL, es decir, MongoDB es un sistema de bases de datos no relacional, en lugar de almacenar los datos en tablas, se almacenan colecciones o documentos, que está formado por objetos, y estos a su vez por claves y cada clave tiene un valor asociado. Es decir, sería algo parecido a un documento JSON, aunque en MongoDB usan una distribución llamada BSON.
+MongoDB es un sistema gestor de base de datos NoSQL, es decir,
+MongoDB es un sistema de bases de datos no relacional, en lugar de
+almacenar los datos en tablas, se almacenan colecciones o documentos,
+que está formado por objetos, y estos a su vez por claves y cada
+clave tiene un valor asociado. Es decir, sería algo parecido a un
+documento JSON, aunque en MongoDB usan una distribución llamada
+BSON.  Véase la figura \ref{fig:NoSQLvsSQL}.
 
 \begin{figure}[!th]
 \begin{center}
 \includegraphics[scale=0.5]{images/nosql}
 \caption{NoSQL vs SQL}
-\label{fig:NoSQL vs SQL}
+\label{fig:NoSQLvsSQL}
 \end{center}
 \end{figure}
 
