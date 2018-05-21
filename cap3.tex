@@ -76,7 +76,7 @@ almacenar los datos en tablas, se almacenan colecciones o documentos,
 que está formado por objetos, y estos a su vez por claves y cada
 clave tiene un valor asociado. Es decir, sería algo parecido a un
 documento JSON, aunque en MongoDB usan una distribución llamada
-BSON.  Véase la figura \ref{fig:NoSQLvsSQL}.
+BSON. Véase la figura \ref{fig:NoSQLvsSQL}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -576,14 +576,14 @@ Otro gran problema de automatizar la creación de tareas es la corrección de la
 
 Pongamos de ejemplo la asignatura de Procesadores de Lenguajes que tiene 31 alumnos, es decir, cada tarea podría tener hasta 31 repositorios, que debería clonar uno a uno y ejecutar dentro de cada repositorio local los comandos para que funcione cada proyecto, por ejemplo \verb|npm install|, para instalar las dependencias NodeJS.
 
-La solución a este problema se propone haciendo uso del comando \verb|git| combinado con la opción submodule. \verb|git| submodule nos proporciona un repositorio incrustado dentro de otro, es decir, en nuestro caso, sería un repositorio de alumno incrustado dentro de un repositorio de evaluación que contiene todos los repositorios de esa tarea, esto lo consigue mediante la creación del fichero .gitmodules, que contiene todos los repositorios submodulos. \verb|git| submodule tiene varias opciones: 
+La solución a este problema se propone haciendo uso del comando \verb|git| combinado con la opción submodule. \verb|git| submodule nos proporciona un repositorio incrustado dentro de otro, es decir, en nuestro caso, sería un repositorio de alumno incrustado dentro de un repositorio de evaluación que contiene todos los repositorios de esa tarea, esto lo consigue mediante la creación del fichero \verb|.gitmodules|, que contiene todos los repositorios submodulos. \verb|git| submodule tiene varias opciones: 
 
 \begin{itemize}
-\item \verb|git submodule init repo| Inicializa el fichero .gitmodules con el repositorio que se le pase.
-\item \verb|git| submodule add repo| Nos permite añadir un repositorio como submódulo del repositorio actual, crea el fichero .gitmodules si no existe.
-\item \verb|git| submodule update repo| Actualiza los submodulos.
-\item \verb|git| submodule foreach repo| Permite ejecutar un comando en cada submódulo de forma paralela.
-\item \verb|git| submodule sync repo| Sincroniza los submodulos con el remoto.
+\item \verb|git submodule init repo| Inicializa el fichero \verb|.gitmodules| con el repositorio que se le pase.
+\item \verb|git submodule add repo| Nos permite añadir un repositorio como submódulo del repositorio actual, crea el fichero \verb|.gitmodules| si no existe.
+\item \verb|git submodule update repo| Actualiza los submodulos.
+\item \verb|git submodule foreach repo| Permite ejecutar un comando en cada submódulo de forma paralela.
+\item \verb|git submodule sync repo| Sincroniza los submodulos con el remoto.
 \end{itemize}
 
 Una vez explicado que es \verb|git| submodule y vista su utilidad veremos como se integra con Codelab y la automatización de corrección. 
